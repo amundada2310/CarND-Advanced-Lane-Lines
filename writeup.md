@@ -405,7 +405,7 @@ Final Image :
 Pipeline for the video is located in "Advanced Lane Line.ipynb" file. It used all the above described functions.
 However, the only change was for first frame I used the Sliding window approach, whereas for the following frame used search around poly approach to find lane lines.
 
-Here's a link to my video result : 
+Here's a link to my video result : [Project_video_output] (https://github.com/amundada2310/CarND-Advanced-Lane-Lines/blob/master/project_video_output.mp4)
 
 ---
 
