@@ -76,10 +76,15 @@ Refer to PDF document for the Flow Chart of Advanced Lane Lines Detection pipeli
    1.2 I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  
 
    1.3 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
+   
 Example-
+
 Original Image : 
+
 <img src="camera_cal/calibration1.jpg" width="700" height="400" />
+
 Calibrated Undistorted Image : 
+
 <img src="camera_corner/camera_undistort/calibration1.jpg" width="700" height="400" />
 
 ---
@@ -89,10 +94,15 @@ Calibrated Undistorted Image :
 #### 1. Provide an example of a distortion-corrected image.
 
    1.1 Ran the camera calibration function to determine the calibration matrix and distortion coefficients using the cv2.calibrateCamera() function to remove any radial and tangential distortion from the original car images:
+   
 Example-
+
 Original Image : 
+
 <img src="test_images/test3.jpg" width="700" height="400" />
+
 Calibrated Undistorted Image : 
+
 <img src="output_images/test_undistort/test3.jpg" width="700" height="400" />
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
@@ -104,8 +114,11 @@ Calibrated Undistorted Image :
     1. H channel  2. S channel  3. L channel
     
    2.3 Combined the threshold results of all 4 gradient threshold with the S channel color space trheshold. The combination resulted in a   binary thresholded images. 
+   
 Example-
+
 Thresholded Image : 
+
 <img src="output_images/test_images_combined_threshold/test3.jpg" width="700" height="400" />
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
@@ -170,8 +183,11 @@ def corners_unwarp(img):
     return warped, M, Minv, src, dst
    `
    3.3 Performed Perspective tranform on all the thresholded images.The resulted images provided the bird eye view of images.
+   
 Example-
+
 Thresholded Image : 
+
 <img src="output_images/test_images_birdeye/test3.jpg" width="700" height="400" />
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
@@ -292,8 +308,11 @@ Thresholded Image :
     return out_img, ploty, left_fit, right_fit, left_fitx, right_fitx
         `
    4.2 The resulted images were provided the Sliding window view of Binary thresholded images.
+   
 Example-
+
 Bird Eye View Image : 
+
 <img src="output_images/test_images_sliding_window/test3.jpg" width="700" height="400" />
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
@@ -337,7 +356,9 @@ Bird Eye View Image :
    5.4 The determined values were then plotted on the image
    
 Example-
+
 Resulting Image : 
+
 <img src="output_images/test_images_radius_meters/test3.jpg" width="700" height="400" />
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
@@ -370,7 +391,9 @@ Resulting Image :
     
     `
 Example-
+
 Final Image : 
+
 <img src="output_images/output_images/test3.jpg" width="700" height="400" />
 
 ---
@@ -391,7 +414,7 @@ Here's a link to my video result :
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 I was able to execute the code for below videos, and performed good under all scenarios whether it be ups and downs or shadow on roads.
-1. project_video_output.mp4
+1. project_video_output.mp
 2. challenge_video_output.mp4
 
 The code couldnt perform well on the "harder_challenge_video.mp4". 
