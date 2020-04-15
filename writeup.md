@@ -77,8 +77,10 @@ Refer to PDF document for the Flow Chart of Advanced Lane Lines Detection pipeli
 
    1.3 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 Example-
-Original Image : <img src="camera_cal/calibration1.jpg" width="700" height="400" />
-Calibrated Undistorted Image : <img src="camera_corner/camera_undistort/calibration1.jpg" width="700" height="400" />
+Original Image : 
+<img src="camera_cal/calibration1.jpg" width="700" height="400" />
+Calibrated Undistorted Image : 
+<img src="camera_corner/camera_undistort/calibration1.jpg" width="700" height="400" />
 
 ---
 
@@ -88,8 +90,10 @@ Calibrated Undistorted Image : <img src="camera_corner/camera_undistort/calibrat
 
    1.1 Ran the camera calibration function to determine the calibration matrix and distortion coefficients using the cv2.calibrateCamera() function to remove any radial and tangential distortion from the original car images:
 Example-
-Original Image : <img src="test_images/test3.jpg" width="700" height="400" />
-Calibrated Undistorted Image : <img src="output_images/test_undistort/test3.jpg" width="700" height="400" />
+Original Image : 
+<img src="test_images/test3.jpg" width="700" height="400" />
+Calibrated Undistorted Image : 
+<img src="output_images/test_undistort/test3.jpg" width="700" height="400" />
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
@@ -101,7 +105,8 @@ Calibrated Undistorted Image : <img src="output_images/test_undistort/test3.jpg"
     
    2.3 Combined the threshold results of all 4 gradient threshold with the S channel color space trheshold. The combination resulted in a   binary thresholded images. 
 Example-
-Thresholded Image : <img src="output_images/test_images_combined_threshold/test3.jpg" width="700" height="400" />
+Thresholded Image : 
+<img src="output_images/test_images_combined_threshold/test3.jpg" width="700" height="400" />
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -166,7 +171,8 @@ def corners_unwarp(img):
    `
    3.3 Performed Perspective tranform on all the thresholded images.The resulted images provided the bird eye view of images.
 Example-
-Thresholded Image : <img src="output_images/test_images_birdeye/test3.jpg" width="700" height="400" />
+Thresholded Image : 
+<img src="output_images/test_images_birdeye/test3.jpg" width="700" height="400" />
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
    
@@ -287,11 +293,13 @@ Thresholded Image : <img src="output_images/test_images_birdeye/test3.jpg" width
         `
    4.2 The resulted images were provided the Sliding window view of Binary thresholded images.
 Example-
-Bird Eye View Image : <img src="output_images/test_images_sliding_window/test3.jpg" width="700" height="400" />
+Bird Eye View Image : 
+<img src="output_images/test_images_sliding_window/test3.jpg" width="700" height="400" />
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
    5.1 The radius (in meters) as well as the offset from center (in meters) was calculated on all the sliding view images. 
+   
    5.2 The code to determine the right and left lane curvature radius is located in "Advanced Lane Line.ipynb" in "Measuring curvature of the lanes and Vehicle position wrt center Function".
    ` def measure_curvature_realm(binary_warped,ym_per_pix,xm_per_pix):
     
@@ -325,13 +333,17 @@ Bird Eye View Image : <img src="output_images/test_images_sliding_window/test3.j
  `
 
    5.3 The above determined values were used then to compute the offset from center.
+   
    5.4 The determined values were then plotted on the image
+   
 Example-
-Resulting Image : <img src="ooutput_images/test_images_radius_meters/test3.jpg" width="700" height="400" />
+Resulting Image : 
+<img src="output_images/test_images_radius_meters/test3.jpg" width="700" height="400" />
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
    6.1 Finally, the lane area were identified and the results were plotted on the image. 
+   
    6.2 Below code lines were used to implement this step:
     
     ` ## Visualization ##
@@ -358,7 +370,8 @@ Resulting Image : <img src="ooutput_images/test_images_radius_meters/test3.jpg" 
     
     `
 Example-
-Final Image : <img src="output_images/output_images/test3.jpg" width="700" height="400" />
+Final Image : 
+<img src="output_images/output_images/test3.jpg" width="700" height="400" />
 
 ---
 
